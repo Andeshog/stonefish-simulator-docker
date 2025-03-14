@@ -26,3 +26,9 @@ RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
     export MAKEFLAGS='-j1 -l1' && colcon build"
 
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["bash"]
