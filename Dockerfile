@@ -25,11 +25,4 @@ RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
     cd /stonefish_ws && \
     export MAKEFLAGS='-j1 -l1' && colcon build"
 
-RUN mkdir -p stonefish_ws/src && \
-    cd stonefish_ws/src && git clone https://github.com/patrykcieslak/stonefish_ros2.git
-
-RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
-    cd /stonefish_ws && \
-    export MAKEFLAGS='-j1 -l1' && colcon build"
-
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
